@@ -3,5 +3,5 @@
 -- Add any additional keymaps here
 
 vim.keymap.set("n", "<leader>dd", function()
-  require("lazyvim.util").float_term({ "lazydocker" }, { esc_esc = false, ctrl_hjkl = false })
+  require("lazyvim.util").terminal.open({ "lazydocker" }, { esc_esc = false, ctrl_hjkl = false })
 end, { desc = "Docker" })
