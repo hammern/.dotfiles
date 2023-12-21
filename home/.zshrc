@@ -3,10 +3,13 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 alias cat="bat"
+
 alias eza="eza --icons auto"
 alias ls="eza"
 alias ll="eza -l"
 alias tree="eza -T"
+
+alias tmux="tmux -u"
 
 source '/usr/share/zsh-antidote/antidote.zsh'
 antidote load
