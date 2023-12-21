@@ -1,0 +1,16 @@
+bat
+btop
+cmatrix
+cowsay
+eza
+fzf
+lazygit
+neofetch
+neovim
+p7zip
+ripgrep
+tmux
+ttf-jetbrains-mono-nerd
+wezterm
+yay
+zsh
