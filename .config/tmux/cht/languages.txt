@@ -1,0 +1,10 @@
+bash
+c
+cpp
+go
+js
+lua
+python
+rust
+tmux
+zsh
