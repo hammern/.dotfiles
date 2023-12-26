@@ -1,5 +1,8 @@
 #!/bin/bash
 
+echo "Configuring pacman..."
+./install/pacman.sh
+
 echo "Installing packages..."
 ./install/packages.sh
 
