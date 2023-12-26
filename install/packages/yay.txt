@@ -1,2 +1,3 @@
+lazydocker
 ttf-meslo-nerd-font-powerlevel10k
 zsh-antidote

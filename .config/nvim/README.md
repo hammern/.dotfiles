@@ -1,4 +1,11 @@
-# 💤 LazyVim
+# kickstart-modular.nvim
 
-A starter template for [LazyVim](https://github.com/LazyVim/LazyVim).
-Refer to the [documentation](https://lazyvim.github.io/installation) to get started.
+### Introduction
+
+*This is a fork of [nvim-lua/kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) that moves from a single file to a multi file configuration.*
+
+A starting point for Neovim that is:
+
+* Small
+* Documented
+* Modular

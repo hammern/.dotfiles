@@ -3,6 +3,7 @@ btop
 cmatrix
 cowsay
 eza
+fd
 fzf
 lazygit
 neofetch
