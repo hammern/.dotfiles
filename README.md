@@ -1,5 +1,7 @@
 # .dotfiles
 
+There's no place like ~/
+
 ## How To Install
 ```bash
 sudo pacman -S git
