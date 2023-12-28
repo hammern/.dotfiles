@@ -14,6 +14,8 @@ alias tmux="tmux -u"
 source '/usr/share/zsh-antidote/antidote.zsh'
 antidote load
 
+source /usr/share/nvm/init-nvm.sh
+
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 neofetch

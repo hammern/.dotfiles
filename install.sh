@@ -11,5 +11,9 @@ echo "Creating symlinks..."
 
 echo "Setting up zsh as default shell..."
 chsh -s $(which zsh)
+exec zsh
+
+echo "Installing nodejs and npm..."
+nvm install --lts
 
 echo "Finished!"
