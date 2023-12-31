@@ -1,3 +1,43 @@
+local icons = {
+  Array = "",
+  Boolean = "󰨙",
+  Class = "",
+  Color = "",
+  Control = "",
+  Collapsed = "",
+  Constant = "󰏿",
+  Constructor = "",
+  Copilot = "",
+  Enum = "",
+  EnumMember = "",
+  Event = "",
+  Field = "",
+  File = "",
+  Folder = "",
+  Function = "󰊕",
+  Interface = "",
+  Key = "",
+  Keyword = "",
+  Method = "󰊕",
+  Module = "",
+  Namespace = "󰦮",
+  Null = "",
+  Number = "󰎠",
+  Object = "",
+  Operator = "",
+  Package = "",
+  Property = "",
+  Reference = "",
+  Snippet = "",
+  String = "",
+  Struct = "󰆼",
+  Text = "",
+  TypeParameter = "",
+  Unit = "",
+  Value = "",
+  Variable = "󰀫",
+}
+
 return {
   -- Autocompletion
   "hrsh7th/nvim-cmp",
@@ -27,6 +67,17 @@ return {
       snippet = {
         expand = function(args)
           luasnip.lsp_expand(args.body)
+        end,
+      },
+      formatting = {
+        format = function(_, item)
+          local kind = item.kind
+
+          if icons[kind] then
+            item.kind = icons[kind] .. " " .. kind
+          end
+
+          return item
         end,
       },
       completion = {
