@@ -3,9 +3,6 @@
 -- Open lazy.nvim menu
 vim.keymap.set("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "[L]azy" })
 
--- Open mason menu
-vim.keymap.set("n", "<leader>m", "<cmd>Mason<cr>", { desc = "[M]ason" })
-
 -- Keymaps for better default experience
 vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 
