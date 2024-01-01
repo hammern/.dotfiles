@@ -70,6 +70,9 @@ return {
       },
       tsserver = {},
       html = {},
+      bashls = {},
+      yamlls = {},
+      dockerls = {},
       lua_ls = {
         Lua = {
           workspace = { checkThirdParty = false },
