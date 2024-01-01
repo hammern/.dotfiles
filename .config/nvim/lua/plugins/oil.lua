@@ -6,7 +6,7 @@ return {
       show_hidden = true,
     },
     keymaps = {
-      ["C-l"] = false, -- Fix collision with vim-tmux-navigator
+      ["<C-l>"] = false, -- Fix collision with vim-tmux-navigator
     },
   },
 }
