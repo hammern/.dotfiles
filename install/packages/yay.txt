@@ -1,4 +1,5 @@
 lazydocker
 nvm
 ttf-meslo-nerd-font-powerlevel10k
+wlogout
 zsh-antidote
