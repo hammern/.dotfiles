@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-FILE_PATH="./.config/tmux/scripts/cht"
+FILE_PATH="$HOME/.config/tmux/scripts/cht"
 
-selected=$(cat ${FILE_PATH}/languages.txt ${FILE_PATH}/commands.txt | fzf)
+selected=$(cat "${FILE_PATH}"/languages.txt "${FILE_PATH}"/commands.txt | fzf)
 
 if [[ -z $selected ]]; then
 	exit 0
