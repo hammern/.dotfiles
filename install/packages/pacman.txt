@@ -25,6 +25,7 @@ qt5-wayland
 qt6-wayland
 ripgrep
 rofi
+swayidle
 tmux
 ttf-jetbrains-mono-nerd
 vlc

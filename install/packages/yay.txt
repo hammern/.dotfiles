@@ -1,5 +1,6 @@
 lazydocker
 nvm
+swaylock-effects
 ttf-meslo-nerd-font-powerlevel10k
 wlogout
 zsh-antidote
