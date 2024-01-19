@@ -18,8 +18,9 @@ return {
     { "j-hui/fidget.nvim", opts = {} },
 
     -- Additional lua configuration, makes nvim stuff amazing!
-    "folke/neodev.nvim",
+    { "folke/neodev.nvim", ft = { "lua", "vim" } },
   },
+  event = { "BufReadPre", "BufNewFile" },
   config = function()
     --  This function gets run when an LSP connects to a particular buffer.
     local on_attach = function(_, bufnr)
