@@ -1,3 +1,5 @@
+grimblast-git
+hyprpicker
 lazydocker
 nvm
 swaylock-effects

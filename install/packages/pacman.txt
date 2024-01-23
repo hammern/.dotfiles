@@ -11,6 +11,7 @@ ffmpeg
 firefox
 fzf
 gparted
+grim
 hyprland
 hyprpaper
 lazygit
@@ -25,6 +26,7 @@ qt5-wayland
 qt6-wayland
 ripgrep
 rofi
+slurp
 swayidle
 tmux
 ttf-jetbrains-mono-nerd
