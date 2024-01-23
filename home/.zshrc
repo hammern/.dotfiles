@@ -11,6 +11,8 @@ alias tree="eza -T"
 
 alias tmux="tmux -u"
 
+alias btop="btop --utf-force"
+
 source '/usr/share/zsh-antidote/antidote.zsh'
 antidote load
 
