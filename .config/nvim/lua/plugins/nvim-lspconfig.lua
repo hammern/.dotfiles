@@ -35,7 +35,7 @@ return {
       nmap("<leader>cr", vim.lsp.buf.rename, "[C]ode [R]ename")
       nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
       nmap("<leader>cA", function()
-        vim.lsp.buf.code_action({ context = { only = { "source " } } })
+        vim.lsp.buf.code_action({ context = { only = { "source" } } })
       end, "[S]ource [A]ction")
 
       local builtin = require("telescope.builtin")
