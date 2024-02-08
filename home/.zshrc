@@ -1,3 +1,5 @@
+EDITOR="nvim"
+
 alias cat="bat"
 
 alias eza="eza --icons auto"
@@ -13,6 +15,9 @@ source '/usr/share/zsh-antidote/antidote.zsh'
 antidote load
 
 source /usr/share/nvm/init-nvm.sh
+
+bindkey -v
+KEYTIMEOUT=1
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
