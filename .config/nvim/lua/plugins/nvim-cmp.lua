@@ -117,6 +117,7 @@ return {
         { name = "luasnip" },
         { name = "path" },
         { name = "buffer" },
+        { name = "crates" },
       },
     })
   end,

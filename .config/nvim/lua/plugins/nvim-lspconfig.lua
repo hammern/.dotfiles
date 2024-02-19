@@ -65,8 +65,13 @@ return {
     local servers = {
       gopls = {},
       rust_analyzer = {
-        check = {
-          command = "clippy",
+        ["rust-analyzer"] = {
+          cargo = {
+            features = "all",
+          },
+          check = {
+            command = "clippy",
+          },
         },
       },
       tsserver = {},
