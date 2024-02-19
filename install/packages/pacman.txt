@@ -27,6 +27,7 @@ qt5-wayland
 qt6-wayland
 ripgrep
 rofi
+rustup
 slurp
 swayidle
 tmux
