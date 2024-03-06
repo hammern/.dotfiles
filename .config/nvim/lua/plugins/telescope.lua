@@ -25,12 +25,6 @@ return {
       defaults = {
         vimgrep_arguments = vimgrep_arguments,
         file_ignore_patterns = { ".git/" },
-        mappings = {
-          i = {
-            ["<C-u>"] = false,
-            ["<C-d>"] = false,
-          },
-        },
       },
       pickers = {
         find_files = {

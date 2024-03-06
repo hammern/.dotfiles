@@ -4,7 +4,7 @@
 vim.o.hlsearch = true
 
 -- Make line numbers default
-vim.wo.number = true
+vim.o.number = true
 
 -- Set relative line numbers
 vim.o.relativenumber = true
@@ -26,7 +26,7 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 
 -- Keep signcolumn on by default
-vim.wo.signcolumn = "yes"
+vim.o.signcolumn = "yes"
 
 -- Decrease update time
 vim.o.updatetime = 250
