@@ -19,4 +19,6 @@ return {
   python = { "isort", "black" },
 
   go = { "goimports", "gofumpt" },
+
+  rust = { "rustfmt" },
 }
