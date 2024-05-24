@@ -3,12 +3,7 @@
 There's no place like ~/
 
 ## How To Install
+
 ```bash
-sudo pacman -S git
-
-git clone https://github.com/hammern/.dotfiles.git ~/.dotfiles
-
-cd ~/.dotfiles
-
-./install.sh
+nix-shell -p git --command "nix run --experimental-features 'nix-command flakes' github:hammern/.dotfiles"
 ```
