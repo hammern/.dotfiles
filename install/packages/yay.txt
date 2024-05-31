@@ -1,3 +1,4 @@
+codelldb-bin
 grimblast-git
 hypridle
 hyprlock
