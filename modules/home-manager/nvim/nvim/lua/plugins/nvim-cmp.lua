@@ -48,6 +48,7 @@ return {
         { name = "path" },
         { name = "buffer" },
         { name = "crates" },
+        { name = "lazydev", group_index = 0 },
       },
     })
   end,

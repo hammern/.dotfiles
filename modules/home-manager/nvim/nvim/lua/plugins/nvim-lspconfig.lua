@@ -18,7 +18,7 @@ return {
     { "j-hui/fidget.nvim", opts = {} },
 
     -- Additional lua configuration, makes nvim stuff amazing!
-    { "folke/neodev.nvim", ft = { "lua", "vim" } },
+    { "folke/lazydev.nvim", ft = "lua", opts = {} },
   },
   event = { "BufReadPre", "BufNewFile" },
   config = function()
@@ -43,9 +43,6 @@ return {
       nmap("gd", builtin.lsp_definitions, "[G]oto [D]efinition")
       nmap("gr", builtin.lsp_references, "[G]oto [R]eferences")
       nmap("gI", builtin.lsp_implementations, "[G]oto [I]mplementation")
-
-      -- See `:help K` for why this keymap
-      nmap("K", vim.lsp.buf.hover, "Hover Documentation")
 
       -- Lesser used LSP functionality
       nmap("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
@@ -87,9 +84,6 @@ return {
       },
       nil_ls = {},
     }
-
-    -- Setup neovim lua configuration
-    require("neodev").setup()
 
     -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
     local capabilities = vim.lsp.protocol.make_client_capabilities()
