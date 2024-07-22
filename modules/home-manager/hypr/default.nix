@@ -16,7 +16,7 @@
   ];
 
   home.sessionVariables = {
-    NIXOS_OSZONE_WL = "1"; # hint electron apps to use wayland
+    NIXOS_OZONE_WL = "1"; # hint electron apps to use wayland
     WLR_RENDERER_ALLOW_SOFTWARE = "1";
   };
 
