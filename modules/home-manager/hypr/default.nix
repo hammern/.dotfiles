@@ -4,6 +4,7 @@
     dunst
     firefox
     nautilus
+    gedit
     grimblast
     hypridle
     hyprlock
