@@ -30,23 +30,15 @@
         "hammern@work" = utils.mkHome "work";
       };
 
-      packages = {
-        default = self.packages.${system}.install;
-
-        install = pkgs.writeShellApplication {
-          name = "install";
-          runtimeInputs = with pkgs; [ fzf git nh ];
-          text = builtins.readFile ./install/install.sh;
-        };
+      packages.${system}.default = pkgs.writeShellApplication {
+        name = "install";
+        runtimeInputs = with pkgs; [ fzf git nh ];
+        text = builtins.readFile ./install/install.sh;
       };
 
-      apps = {
-        default = self.apps.${system}.install;
-
-        install = {
-          type = "app";
-          program = "${self.packages.${system}.install}/bin/install";
-        };
+      apps.${system}.default = {
+        type = "app";
+        program = "${self.packages.${system}.default}/bin/install";
       };
     };
 }

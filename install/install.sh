@@ -11,8 +11,8 @@ fi
 
 nixos-generate-config --show-hardware-config >"$DOTFILES_DIR"/hosts/"$hostname"/hardware-configuration.nix
 
-flake_path="$DOTFILES_DIR"#"$hostname"
-nh os switch --flake "$flake_path"
-nh home switch --flake "$flake_path"
+export FLAKE="$DOTFILES_DIR"
+nh os switch -H "$hostname"
+nh home switch -c hammern@"$hostname"
 
 echo "All done! Please reboot the system"
