@@ -10,7 +10,7 @@
     lazydocker
     lazygit
     lldb
-    nixfmt
+    nixfmt-classic
     nodejs
     ripgrep
     rustup

@@ -5,4 +5,7 @@ return {
 	window_padding = { left = 0, right = 0, top = 0, bottom = 0 },
 	disable_default_key_bindings = true,
 	enable_wayland = false,
+
+	-- fix for https://github.com/wez/wezterm/issues/5990
+	front_end = "WebGpu",
 }

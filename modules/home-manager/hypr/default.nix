@@ -3,7 +3,7 @@
     cliphist
     dunst
     firefox
-    gnome.nautilus
+    nautilus
     grimblast
     hypridle
     hyprlock
