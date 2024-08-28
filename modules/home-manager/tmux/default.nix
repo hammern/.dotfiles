@@ -5,8 +5,11 @@
     plugins = with pkgs.tmuxPlugins; [
       sensible
       yank
-      prefix-highlight
       vim-tmux-navigator
+      {
+        plugin = prefix-highlight;
+        extraConfig = builtins.readFile ./tmux/themes/tokyonight_night.tmux;
+      }
     ];
 
     extraConfig = builtins.readFile ./tmux/tmux.conf;
