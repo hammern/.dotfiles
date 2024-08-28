@@ -1,7 +1,7 @@
 { pkgs, ... }: {
   imports = [ ./hardware-configuration.nix ] ++ builtins.foldl'
     (acc: module: [ ../../modules/nixos/${module}/default.nix ] ++ acc)
-    [ ] [ "audio" "bluetooth" "bootloader" "fonts" "locale" "nvidia" ];
+    [ ] [ "audio" "bluetooth" "bootloader" "fonts" "locale" "nvidia" "usb" ];
 
   networking.hostName = "home";
 
@@ -29,6 +29,7 @@
   programs.zsh.enable = true;
 
   programs.hyprland.enable = true;
+  services.gvfs.enable = true;
 
   programs.steam.enable = true;
 
