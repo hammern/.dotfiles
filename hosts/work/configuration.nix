@@ -1,7 +1,7 @@
 { pkgs, ... }: {
   imports = [ ./hardware-configuration.nix ] ++ builtins.foldl'
     (acc: module: [ ../../modules/nixos/${module}/default.nix ] ++ acc)
-    [ ] [ "audio" "bluetooth" "bootloader" "fonts" "locale" ];
+    [ ] [ "audio" "bluetooth" "bootloader" "docker" "fonts" "locale" ];
 
   networking.hostName = "work";
 
