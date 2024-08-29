@@ -3,15 +3,16 @@
     cliphist
     dunst
     firefox
-    nautilus
     gedit
     grimblast
     hypridle
     hyprlock
     hyprpaper
+    nautilus
     qbittorrent
     vlc
     waybar
+    wl-clipboard
     wlogout
     wofi
   ];
