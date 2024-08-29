@@ -1,4 +1,6 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+let gtkTheme = "Adwaita-dark";
+in {
   home.packages = with pkgs; [
     cliphist
     dunst
@@ -19,6 +21,7 @@
 
   home.sessionVariables = {
     NIXOS_OZONE_WL = "1"; # hint electron apps to use wayland
+    GTK_THEME = gtkTheme;
   };
 
   home.pointerCursor = {
@@ -32,7 +35,7 @@
     enable = true;
     theme = {
       package = pkgs.gnome.gnome-themes-extra;
-      name = "Adwaita-dark";
+      name = gtkTheme;
     };
     gtk3.extraConfig.gtk-application-prefer-dark-theme = 1;
     gtk4.extraConfig.gtk-application-prefer-dark-theme = 1;
