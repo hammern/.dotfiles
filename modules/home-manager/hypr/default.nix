@@ -19,7 +19,13 @@
 
   home.sessionVariables = {
     NIXOS_OZONE_WL = "1"; # hint electron apps to use wayland
-    WLR_RENDERER_ALLOW_SOFTWARE = "1";
+  };
+
+  home.pointerCursor = {
+    gtk.enable = true;
+    package = pkgs.bibata-cursors;
+    name = "Bibata-Modern-Classic";
+    size = 24;
   };
 
   xdg.configFile."hypr".source = ./hypr;
