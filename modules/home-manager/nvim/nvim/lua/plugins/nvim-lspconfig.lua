@@ -71,7 +71,7 @@ return {
           },
         },
       },
-      tsserver = {},
+      ts_ls = {},
       html = {},
       bashls = {},
       yamlls = {},
