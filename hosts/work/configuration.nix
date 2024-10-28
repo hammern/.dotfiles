@@ -1,7 +1,15 @@
 { pkgs, ... }: {
   imports = [ ./hardware-configuration.nix ] ++ builtins.foldl'
-    (acc: module: [ ../../modules/nixos/${module}/default.nix ] ++ acc)
-    [ ] [ "audio" "bluetooth" "bootloader" "docker" "fonts" "locale" "usb" ];
+    (acc: module: [ ../../modules/nixos/${module}/default.nix ] ++ acc) [ ] [
+      "audio"
+      "bluetooth"
+      "bootloader"
+      "docker"
+      "fonts"
+      "locale"
+      "usb"
+      "shells/fish"
+    ];
 
   networking.hostName = "work";
 
@@ -13,7 +21,6 @@
     isNormalUser = true;
     description = "hammern";
     extraGroups = [ "networkmanager" "wheel" ];
-    shell = pkgs.zsh;
   };
 
   nix.gc = {
@@ -27,8 +34,6 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [ git home-manager vim ];
-
-  programs.zsh.enable = true;
 
   programs.hyprland.enable = true;
   services.gvfs.enable = true;
