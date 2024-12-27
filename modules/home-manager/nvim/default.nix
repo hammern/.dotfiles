@@ -2,7 +2,7 @@
   home.packages = with pkgs; [
     neovim
 
-    cmake
+    # Tools & Languages
     fd
     gcc
     gnumake
@@ -10,13 +10,35 @@
     lazydocker
     lazygit
     lldb
-    nixfmt-classic
     nodejs
     ripgrep
     rustup
     tree-sitter
-    unzip
-    wget
+
+    # LSPs
+    bash-language-server
+    dockerfile-language-server-nodejs
+    gopls
+    lua-language-server
+    nixd
+    typescript-language-server
+    yaml-language-server
+
+    # Formatters
+    black
+    gofumpt
+    isort
+    nixfmt-classic
+    prettierd
+    shellcheck
+    shfmt
+    stylua
+
+    # Linters
+    eslint_d
+    golangci-lint
+    markdownlint-cli
+    yamllint
   ];
 
   home.sessionVariables = { EDITOR = "nvim"; };

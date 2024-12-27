@@ -2,18 +2,6 @@ return {
   -- LSP Configuration & Plugins
   "neovim/nvim-lspconfig",
   dependencies = {
-    -- Automatically install LSPs to stdpath for neovim
-    {
-      "williamboman/mason.nvim",
-      config = true,
-      cmd = "Mason",
-      keys = {
-        { "<leader>m", "<cmd>Mason<cr>", { desc = { "[M]ason" } } },
-      },
-    },
-    "williamboman/mason-lspconfig.nvim",
-    "whoissethdaniel/mason-tool-installer.nvim",
-
     -- Useful status updates for LSP
     { "j-hui/fidget.nvim", opts = {} },
 
@@ -21,45 +9,9 @@ return {
     { "folke/lazydev.nvim", ft = "lua", opts = {} },
   },
   event = { "BufReadPre", "BufNewFile" },
-  config = function()
-    --  This function gets run when an LSP connects to a particular buffer.
-    local on_attach = function(_, bufnr)
-      local nmap = function(keys, func, desc)
-        if desc then
-          desc = "LSP: " .. desc
-        end
-
-        vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
-      end
-
-      nmap("<leader>cr", vim.lsp.buf.rename, "[C]ode [R]ename")
-      nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
-      nmap("<leader>cA", function()
-        vim.lsp.buf.code_action({ context = { only = { "source" } } })
-      end, "[S]ource [A]ction")
-
-      local builtin = require("telescope.builtin")
-
-      nmap("gd", builtin.lsp_definitions, "[G]oto [D]efinition")
-      nmap("gr", builtin.lsp_references, "[G]oto [R]eferences")
-      nmap("gI", builtin.lsp_implementations, "[G]oto [I]mplementation")
-
-      -- Lesser used LSP functionality
-      nmap("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
-
-      -- Create a command `:Format` local to the LSP buffer
-      vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
-        vim.lsp.buf.format()
-      end, { desc = "Format current buffer with LSP" })
-    end
-
-    -- mason-lspconfig requires that these setup functions are called in this order
-    -- before setting up the servers.
-    require("mason").setup()
-    require("mason-lspconfig").setup()
-
+  opts = {
     -- Enable the following language servers
-    local servers = {
+    servers = {
       gopls = {},
       rust_analyzer = {
         ["rust-analyzer"] = {
@@ -72,7 +24,6 @@ return {
         },
       },
       ts_ls = {},
-      html = {},
       bashls = {},
       yamlls = {},
       dockerls = {},
@@ -82,47 +33,42 @@ return {
           telemetry = { enable = false },
         },
       },
-      nil_ls = {},
-    }
+      nixd = {},
+    },
+  },
+  config = function(_, opts)
+    --  This function gets run when an LSP attaches to a particular buffer.
+    vim.api.nvim_create_autocmd("LspAttach", {
+      group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
+      callback = function(event)
+        local nmap = function(keys, func, desc)
+          vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP:" .. desc })
+        end
 
-    -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
-    local capabilities = vim.lsp.protocol.make_client_capabilities()
-    capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
+        nmap("<leader>cr", vim.lsp.buf.rename, "[C]ode [R]ename")
+        nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
+        nmap("<leader>cA", function()
+          ---@diagnostic disable-next-line: missing-fields
+          vim.lsp.buf.code_action({ context = { only = { "source" } } })
+        end, "[S]ource [A]ction")
 
-    -- Ensure the servers above are installed
-    local mason_lspconfig = require("mason-lspconfig")
+        nmap("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
+        nmap("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
+        nmap("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
+        nmap("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 
-    mason_lspconfig.setup({
-      ensure_installed = vim.tbl_keys(servers),
-      automatic_installation = true,
-    })
-
-    mason_lspconfig.setup_handlers({
-      function(server_name)
-        require("lspconfig")[server_name].setup({
-          capabilities = capabilities,
-          on_attach = on_attach,
-          settings = servers[server_name],
-          filetypes = (servers[server_name] or {}).filetypes,
-        })
+        -- Create a command `:Format` local to the LSP buffer
+        vim.api.nvim_buf_create_user_command(event.buf, "Format", function(_)
+          vim.lsp.buf.format()
+        end, { desc = "Format current buffer with LSP" })
       end,
     })
 
-    local get_table_values = function(table)
-      return vim.tbl_flatten(vim.tbl_values(table))
+    -- Setup LSPs
+    local lspconfig = require("lspconfig")
+    for server_name, config in pairs(opts.servers) do
+      config.capabilities = vim.tbl_deep_extend("force", vim.lsp.protocol.make_client_capabilities(), require("cmp_nvim_lsp").default_capabilities())
+      lspconfig[server_name].setup(config)
     end
-
-    local formatters_by_ft = require("plugins.mason-tool-installer.formatters")
-    local linters_by_ft = require("plugins.mason-tool-installer.linters")
-
-    local tools = vim.list_extend(get_table_values(formatters_by_ft), get_table_values(linters_by_ft))
-
-    table.sort(tools)
-    vim.fn.uniq(tools)
-
-    -- Automatically install formatters and linters
-    require("mason-tool-installer").setup({
-      ensure_installed = tools,
-    })
   end,
 }

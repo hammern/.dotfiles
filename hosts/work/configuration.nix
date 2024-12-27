@@ -43,11 +43,6 @@
     flake = "/home/hammern/.dotfiles";
   };
 
-  programs.nix-ld = {
-    enable = true;
-    libraries = with pkgs; [ stdenv.cc.cc ];
-  };
-
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   system.stateVersion = "24.05";
