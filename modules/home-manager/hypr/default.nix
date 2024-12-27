@@ -34,7 +34,7 @@ in {
   gtk = {
     enable = true;
     theme = {
-      package = pkgs.gnome.gnome-themes-extra;
+      package = pkgs.gnome-themes-extra;
       name = gtkTheme;
     };
     gtk3.extraConfig.gtk-application-prefer-dark-theme = 1;
