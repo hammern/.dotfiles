@@ -16,7 +16,7 @@ return {
   opts = {},
   keys = {
     {
-      "<leader>gg",
+      "<leader>g",
       function()
         open_fullscreen_terminal("lazygit")
       end,

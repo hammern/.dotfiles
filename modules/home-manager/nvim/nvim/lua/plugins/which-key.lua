@@ -5,7 +5,6 @@ return {
   opts = {
     spec = {
       { "<leader>c", group = "[C]ode" },
-      { "<leader>g", group = "[G]it", mode = { "n", "v" } },
       { "<leader>s", group = "[S]earch" },
     },
   },
