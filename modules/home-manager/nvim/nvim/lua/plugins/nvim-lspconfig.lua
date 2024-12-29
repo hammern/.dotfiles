@@ -2,6 +2,7 @@ return {
   -- LSP Configuration & Plugins
   "neovim/nvim-lspconfig",
   dependencies = {
+    "saghen/blink.cmp",
     -- Useful status updates for LSP
     { "j-hui/fidget.nvim", opts = {} },
 
@@ -67,7 +68,7 @@ return {
     -- Setup LSPs
     local lspconfig = require("lspconfig")
     for server_name, config in pairs(opts.servers) do
-      config.capabilities = vim.tbl_deep_extend("force", vim.lsp.protocol.make_client_capabilities(), require("cmp_nvim_lsp").default_capabilities())
+      config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
       lspconfig[server_name].setup(config)
     end
   end,
