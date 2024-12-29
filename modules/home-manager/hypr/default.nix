@@ -2,7 +2,7 @@
 let gtkTheme = "Adwaita-dark";
 in {
   home.packages = with pkgs; [
-    cliphist
+    clipse
     dunst
     firefox
     gedit
@@ -11,10 +11,12 @@ in {
     hyprlock
     hyprpaper
     nautilus
+    pipewire
+    playerctl
     qbittorrent
     vlc
     waybar
-    wl-clipboard
+    wireplumber
     wlogout
     wofi
   ];
