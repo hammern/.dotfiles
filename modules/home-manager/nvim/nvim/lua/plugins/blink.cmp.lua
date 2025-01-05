@@ -18,13 +18,16 @@ return {
 
     completion = {
       menu = {
-        auto_show = function(ctx)
-          return ctx.mode ~= "cmdline"
-        end,
+        auto_show = true,
       },
       documentation = {
         auto_show = true,
         auto_show_delay_ms = 200,
+      },
+      list = {
+        selection = function(ctx)
+          return ctx.mode == "cmdline" and "auto_insert" or "preselect"
+        end,
       },
     },
 
@@ -33,6 +36,9 @@ return {
     },
 
     sources = {
+      min_keyword_length = function(ctx)
+        return ctx.mode == "cmdline" and 3 or 0
+      end,
       default = { "lsp", "path", "snippets", "buffer", "lazydev" },
       providers = {
         lazydev = {
