@@ -25,9 +25,11 @@ return {
         auto_show_delay_ms = 200,
       },
       list = {
-        selection = function(ctx)
-          return ctx.mode == "cmdline" and "auto_insert" or "preselect"
-        end,
+        selection = {
+          auto_insert = function(ctx)
+            return ctx.mode == "cmdline"
+          end,
+        },
       },
     },
 
