@@ -17,6 +17,7 @@
 
     # LSPs
     bash-language-server
+    clang-tools
     dockerfile-language-server-nodejs
     gopls
     lua-language-server

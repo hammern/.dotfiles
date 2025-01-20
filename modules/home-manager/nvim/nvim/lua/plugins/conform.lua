@@ -31,6 +31,8 @@ return {
       rust = { "rustfmt" },
 
       nix = { "nixfmt" },
+
+      c = { "clang-format" },
     },
     default_format_opts = { lsp_format = "fallback" },
     format_on_save = { timeout_ms = 500 },

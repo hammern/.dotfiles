@@ -35,6 +35,7 @@ return {
         },
       },
       nixd = {},
+      clangd = {},
     },
   },
   config = function(_, opts)
