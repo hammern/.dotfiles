@@ -54,11 +54,6 @@ return {
           vim.lsp.buf.code_action({ context = { only = { "source" } } })
         end, "[S]ource [A]ction")
 
-        nmap("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
-        nmap("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
-        nmap("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
-        nmap("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
-
         -- Create a command `:Format` local to the LSP buffer
         vim.api.nvim_buf_create_user_command(event.buf, "Format", function(_)
           vim.lsp.buf.format()
