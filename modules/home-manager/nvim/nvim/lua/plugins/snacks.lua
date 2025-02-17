@@ -15,6 +15,7 @@ return {
     },
     picker = {},
     indent = { animate = { enabled = false } },
+    terminal = {},
   },
   keys = {
     {
@@ -96,6 +97,22 @@ return {
         Snacks.picker.lsp_implementations()
       end,
       desc = "[G]oto [I]mplementation",
+    },
+
+    -- Terminal
+    {
+      "<leader>g",
+      function()
+        Snacks.terminal("lazygit", { win = { width = vim.o.columns, height = vim.o.lines } })
+      end,
+      desc = "Open Lazy[G]it",
+    },
+    {
+      "<leader>d",
+      function()
+        Snacks.terminal("lazydocker", { win = { width = vim.o.columns, height = vim.o.lines } })
+      end,
+      desc = "Open Lazy[D]ocker",
     },
   },
 }
