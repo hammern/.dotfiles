@@ -14,6 +14,7 @@ return {
       },
     },
     picker = {},
+    indent = { animate = { enabled = false } },
   },
   keys = {
     {
