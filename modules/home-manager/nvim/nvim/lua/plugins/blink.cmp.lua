@@ -4,8 +4,8 @@ return {
   dependencies = { "rafamadriz/friendly-snippets" },
   version = "*",
 
-  --@module "blink.cmp"
-  --@type blink.cmp.Config
+  ---@module "blink.cmp"
+  ---@type blink.cmp.Config
   opts = {
     keymap = {
       preset = "default",
@@ -17,18 +17,13 @@ return {
     },
 
     completion = {
-      menu = {
-        auto_show = true,
-      },
       documentation = {
         auto_show = true,
         auto_show_delay_ms = 200,
       },
       list = {
         selection = {
-          auto_insert = function(ctx)
-            return ctx.mode == "cmdline"
-          end,
+          auto_insert = false,
         },
       },
     },
@@ -38,9 +33,6 @@ return {
     },
 
     sources = {
-      min_keyword_length = function(ctx)
-        return ctx.mode == "cmdline" and 3 or 0
-      end,
       default = { "lsp", "path", "snippets", "buffer", "lazydev" },
       providers = {
         lazydev = {
