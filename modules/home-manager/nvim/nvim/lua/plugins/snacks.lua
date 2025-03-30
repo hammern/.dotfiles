@@ -85,14 +85,14 @@ return {
       desc = "[G]oto [D]eclaration",
     },
     {
-      "gr",
+      "grr",
       function()
         Snacks.picker.lsp_references()
       end,
       desc = "[G]oto [R]eferences",
     },
     {
-      "gI",
+      "gri",
       function()
         Snacks.picker.lsp_implementations()
       end,

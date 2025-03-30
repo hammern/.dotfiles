@@ -4,7 +4,6 @@ return {
   event = "VimEnter",
   opts = {
     spec = {
-      { "<leader>c", group = "[C]ode" },
       { "<leader>s", group = "[S]earch", mode = { "n", "x" } },
     },
   },

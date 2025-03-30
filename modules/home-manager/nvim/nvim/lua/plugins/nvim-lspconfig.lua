@@ -43,17 +43,6 @@ return {
     vim.api.nvim_create_autocmd("LspAttach", {
       group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
       callback = function(event)
-        local nmap = function(keys, func, desc)
-          vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP:" .. desc })
-        end
-
-        nmap("<leader>cr", vim.lsp.buf.rename, "[C]ode [R]ename")
-        nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
-        nmap("<leader>cA", function()
-          ---@diagnostic disable-next-line: missing-fields
-          vim.lsp.buf.code_action({ context = { only = { "source" } } })
-        end, "[S]ource [A]ction")
-
         -- Create a command `:Format` local to the LSP buffer
         vim.api.nvim_buf_create_user_command(event.buf, "Format", function(_)
           vim.lsp.buf.format()
