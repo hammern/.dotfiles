@@ -4,7 +4,7 @@
 
   imports = builtins.foldl'
     (acc: module: [ ../../modules/home-manager/${module}/default.nix ] ++ acc)
-    [ ] [ "git" "wezterm" "zsh" "tmux" "nvim" "hypr" "discord" ];
+    [ ] [ "git" "wezterm" "shells/fish" "tmux" "nvim" "hypr" "discord" ];
 
   programs.home-manager.enable = true;
 
