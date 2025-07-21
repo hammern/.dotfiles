@@ -17,6 +17,7 @@ in {
     vlc
     waybar
     wireplumber
+    wl-clipboard
     wlogout
     wofi
   ];
