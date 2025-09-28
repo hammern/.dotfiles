@@ -2,7 +2,6 @@ return {
   -- LSP Configuration & Plugins
   "neovim/nvim-lspconfig",
   dependencies = {
-    "saghen/blink.cmp",
     -- Useful status updates for LSP
     { "j-hui/fidget.nvim", opts = {} },
 
@@ -14,26 +13,12 @@ return {
     -- Enable the following language servers
     servers = {
       gopls = {},
-      rust_analyzer = {
-        ["rust-analyzer"] = {
-          cargo = {
-            features = "all",
-          },
-          check = {
-            command = "clippy",
-          },
-        },
-      },
+      rust_analyzer = {},
       ts_ls = {},
       bashls = {},
       yamlls = {},
       dockerls = {},
-      lua_ls = {
-        Lua = {
-          workspace = { checkThirdParty = false },
-          telemetry = { enable = false },
-        },
-      },
+      lua_ls = {},
       nixd = {},
       clangd = {},
     },
@@ -51,10 +36,9 @@ return {
     })
 
     -- Setup LSPs
-    local lspconfig = require("lspconfig")
     for server_name, config in pairs(opts.servers) do
-      config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
-      lspconfig[server_name].setup(config)
+      vim.lsp.config(server_name, config)
+      vim.lsp.enable(server_name)
     end
   end,
 }
