@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   users.users.hammern.extraGroups = [ "docker" ];
 
   virtualisation.docker.enable = true;

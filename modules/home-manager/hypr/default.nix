@@ -1,6 +1,8 @@
 { pkgs, ... }:
-let gtkTheme = "Adwaita-dark";
-in {
+let
+  gtkTheme = "Adwaita-dark";
+in
+{
   home.packages = with pkgs; [
     clipse
     dunst

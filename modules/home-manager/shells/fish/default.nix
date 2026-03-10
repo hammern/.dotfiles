@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   imports = [ ../default.nix ];
 
   programs.fish = {
@@ -7,9 +8,11 @@
     interactiveShellInit = ''
       set fish_greeting # Disabled greeting
     '';
-    plugins = [{
-      name = "fzf";
-      src = pkgs.fishPlugins.fzf-fish.src;
-    }];
+    plugins = [
+      {
+        name = "fzf";
+        src = pkgs.fishPlugins.fzf-fish.src;
+      }
+    ];
   };
 }

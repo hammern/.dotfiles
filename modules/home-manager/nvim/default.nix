@@ -1,4 +1,5 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
   home.packages = with pkgs; [
     neovim
 
@@ -42,8 +43,10 @@
     yamllint
   ];
 
-  home.sessionVariables = { EDITOR = "nvim"; };
+  home.sessionVariables = {
+    EDITOR = "nvim";
+  };
 
-  xdg.configFile."nvim".source = config.lib.file.mkOutOfStoreSymlink
-    /home/hammern/.dotfiles/modules/home-manager/nvim/nvim;
+  xdg.configFile."nvim".source =
+    config.lib.file.mkOutOfStoreSymlink /home/hammern/.dotfiles/modules/home-manager/nvim/nvim;
 }
