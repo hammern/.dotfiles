@@ -3,7 +3,9 @@
 
   programs.git = {
     enable = true;
-    userName = "Nadav Hammer";
-    userEmail = "twindata36@gmail.com";
+    settings.user = {
+      name = "Nadav Hammer";
+      email = "twindata36@gmail.com";
+    };
   };
 }

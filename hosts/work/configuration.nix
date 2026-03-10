@@ -7,6 +7,7 @@
       "docker"
       "fonts"
       "locale"
+      "nh"
       "usb"
       "shells/fish"
     ];
@@ -23,12 +24,6 @@
     extraGroups = [ "networkmanager" "wheel" ];
   };
 
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 30d";
-  };
-
   nix.settings.auto-optimise-store = true;
 
   nixpkgs.config.allowUnfree = true;
@@ -37,11 +32,6 @@
 
   programs.hyprland.enable = true;
   services.gvfs.enable = true;
-
-  programs.nh = {
-    enable = true;
-    flake = "/home/hammern/.dotfiles";
-  };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 

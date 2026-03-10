@@ -6,6 +6,7 @@
       "bootloader"
       "fonts"
       "locale"
+      "nh"
       "nvidia"
       "usb"
       "shells/zsh"
@@ -21,12 +22,6 @@
     extraGroups = [ "networkmanager" "wheel" ];
   };
 
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 30d";
-  };
-
   nix.settings.auto-optimise-store = true;
 
   nixpkgs.config.allowUnfree = true;
@@ -37,11 +32,6 @@
   services.gvfs.enable = true;
 
   programs.steam.enable = true;
-
-  programs.nh = {
-    enable = true;
-    flake = "/home/hammern/.dotfiles";
-  };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 

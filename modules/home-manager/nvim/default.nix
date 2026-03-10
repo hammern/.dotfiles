@@ -18,7 +18,7 @@
     # LSPs
     bash-language-server
     clang-tools
-    dockerfile-language-server-nodejs
+    dockerfile-language-server
     gopls
     lua-language-server
     nixd
@@ -29,7 +29,7 @@
     black
     gofumpt
     isort
-    nixfmt-classic
+    nixfmt
     prettierd
     shellcheck
     shfmt
