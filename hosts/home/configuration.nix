@@ -9,7 +9,7 @@
       [
         "audio"
         "bluetooth"
-        "bootloader"
+        "bootloader/grub"
         "fonts"
         "locale"
         "nh"

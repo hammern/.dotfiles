@@ -7,7 +7,7 @@
     builtins.foldl' (acc: module: [ ../../modules/nixos/${module}/default.nix ] ++ acc)
       [ ]
       [
-        "bootloader"
+        "bootloader/grub"
         "fonts"
         "locale"
         "nh"
