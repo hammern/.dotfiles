@@ -12,6 +12,7 @@
         "locale"
         "nh"
         "usb"
+        "selfhost"
         "shells/fish"
       ];
 
