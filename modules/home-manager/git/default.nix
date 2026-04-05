@@ -8,5 +8,6 @@
       name = "Nadav Hammer";
       email = "twindata36@gmail.com";
     };
+    signing.format = null;
   };
 }
