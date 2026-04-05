@@ -1,7 +1,9 @@
 -- [[ Keymaps ]]
 
--- Open lazy.nvim menu
-vim.keymap.set("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "[L]azy" })
+-- Open vim.pack update menu
+vim.keymap.set("n", "<leader>l", function()
+  vim.pack.update()
+end, { desc = "Update plugins" })
 
 -- Keymaps for better default experience
 vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })

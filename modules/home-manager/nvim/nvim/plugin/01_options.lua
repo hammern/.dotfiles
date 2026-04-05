@@ -1,4 +1,4 @@
--- [[ Setting options ]]
+-- [[ Options ]]
 
 -- Set highlight on search
 vim.o.hlsearch = true
